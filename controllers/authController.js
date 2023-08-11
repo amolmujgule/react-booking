@@ -30,7 +30,8 @@ export const register = async (req, res) => {
 
 // user login
 export const login = async (req, res) => {
-    const email = req.body.email
+    const {email,password} = req.body
+    // console.log(password);
     try {
 
         const user = await User.findOne({email})
@@ -46,6 +47,7 @@ export const login = async (req, res) => {
         
       const checkCorrectPassword = await  bcrypt.compare(req.body.password, user.password)
         // if password is incorrect 
+        // console.log(checkCorrectPassword);
         if (!checkCorrectPassword) {
             return res.status(401).json({
                 success:false,
