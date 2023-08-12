@@ -14,7 +14,7 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT || 5000
 const corsOptions = {
-    origin: "https://tour-booking-cu9m.onrender.com",
+    origin: "http://localhost:5000",
     credentials: true
 }
 
